@@ -73,13 +73,67 @@
       <!-- 表3 -->
       <div class="histogram-week">
         <div class="header-tab">
-          <div class="top topstyle">会员数</div>
-          <div class="top">订单数</div>
-          <div class="top">订单额</div>
-          <div class="top">收益</div>
+          <div
+            v-for="(item, index) in bardata"
+            :key="index"
+            :class="{ topstyle: isHighlight3 === index }"
+            class="top"
+            @click="changeHighlight3(index)"
+          >
+            {{ item.name }}
+          </div>
         </div>
         <div class="histogram-bg">
           <div ref="bar" class="histogram"></div>
+        </div>
+      </div>
+      <!-- VIP -->
+      <div class="vip-box">
+        <div class="o-yuan"></div>
+        <div class="c-yuan"></div>
+        <div class="n-yuan">
+          <div class="quchu"></div>
+        </div>
+        <!--图标-->
+        <div class="tb-logo">
+          <img src="../../assets/images/people.png" alt="" />
+        </div>
+        <!--线条-->
+        <img src="../../assets/images/position-tiao.png" alt="" class="cz-png " />
+
+        <img src="../../assets/images/xian.png" alt="" class="p-xian " />
+
+        <!--会员数-->
+        <div id="vip" class="vip-number">6,827,100,815</div>
+
+        <div class="vip-tit">
+          <p class="p1">会员数</p>
+          <p>Members</p>
+        </div>
+      </div>
+      <!--消费订单-->
+      <div class="consume-box">
+        <!--三圆动画-->
+        <div class="o-yuan"></div>
+        <div class="c-yuan"></div>
+        <div class="n-yuan">
+          <div class="quchu"></div>
+        </div>
+        <!--图标-->
+        <div class="tb-logo">
+          <img src="../../assets/images/shop.png" alt="" />
+        </div>
+        <!--线条-->
+        <img src="../../assets/images/position-tiao.png" alt="" class="cz-png" />
+
+        <img src="../../assets/images/xian.png" alt="" class="p-xian" />
+
+        <!--会员数-->
+        <div id="consume-box" class="vip-number"></div>
+
+        <div class="vip-tit">
+          <p class="p1">消费订单</p>
+          <p>Consumer orders</p>
         </div>
       </div>
     </div>
@@ -117,6 +171,20 @@ export default {
           name: '消费次数来源',
         },
       ],
+      bardata: [
+        {
+          name: '会员数',
+        },
+        {
+          name: '订单数',
+        },
+        {
+          name: '订单额',
+        },
+        {
+          name: '收益',
+        },
+      ],
       dom: null,
       timer: null,
       chake: false,
@@ -129,6 +197,7 @@ export default {
       hms: this.$moment().format('HH:mm:ss'),
       isHighlight1: 0,
       isHighlight2: 0,
+      isHighlight3: 0,
     };
   },
   created() {
@@ -144,7 +213,7 @@ export default {
         top: '5%',
         left: 'left',
         textStyle: {
-          fontSize: 16,
+          fontSize: 15,
           fontWeight: 'bolder',
           color: '#f3c800',
         },
@@ -216,7 +285,7 @@ export default {
         top: '5%',
         left: 'left',
         textStyle: {
-          fontSize: 16,
+          fontSize: 15,
           fontWeight: 'bolder',
           color: '#f3c800',
         },
@@ -270,16 +339,53 @@ export default {
     };
     //表3配置
     this.option3 = {
+      //标题
+      title: {
+        text: '近期收益金额',
+        top: '5%',
+        left: 'left',
+        textStyle: {
+          fontSize: 15,
+          fontWeight: 'bolder',
+          color: '#f3c800',
+        },
+      },
+      //自定义item项颜色
+      itemStyle: {
+        color: function(params) {
+          //自定义颜色
+          var colorList = ['#00c6f7', '#00c6f7', '#00c6f7', '#00c6f7', '#00c6f7', '#00c6f7', '#00c6f7'];
+          return colorList[params.dataIndex];
+        },
+      },
+      textStyle: {
+        fontSize: 15,
+        color: '#fff',
+      },
+      axisTick: {
+        show: false,
+      },
+      grid: {
+        color: '#fff',
+      },
       xAxis: {
         type: 'category',
         data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+
+        axisTick: {
+          show: false,
+        },
       },
       yAxis: {
+        show: false,
         type: 'value',
+        axisTick: {
+          show: false,
+        },
       },
       series: [
         {
-          data: [120, 200, 150, 80, 70, 110, 430],
+          data: [80, 110, 90, 150, 290, 222, 430],
           type: 'bar',
         },
       ],
@@ -343,8 +449,11 @@ export default {
         }
         // debugger;
         this.option1.series[0].data[0].name = this.cityName;
+
         // debugger;
         this.myChart1.setOption(this.option1);
+        this.createMychart2();
+        this.createMychart3();
       });
     });
   },
@@ -384,6 +493,27 @@ export default {
         case 1:
           console.log('消费次数来源');
           this.createMychart2('消费次数来源');
+          break;
+      }
+    },
+    changeHighlight3(index) {
+      this.isHighlight3 = index;
+      switch (index) {
+        case 0:
+          console.log('会员数');
+          this.createMychart3('会员数');
+          break;
+        case 1:
+          console.log('订单数');
+          this.createMychart3('订单数');
+          break;
+        case 2:
+          console.log('订单额');
+          this.createMychart3('订单额');
+          break;
+        case 3:
+          console.log('收益');
+          this.createMychart3('收益');
           break;
       }
     },
@@ -687,6 +817,7 @@ export default {
     display: flex;
     flex-direction: column;
     .pie-box {
+      z-index: 16;
       width: 280px;
       height: 342px;
       position: absolute;
@@ -758,6 +889,7 @@ export default {
       }
     }
     .pie-box2 {
+      z-index: 16;
       margin-top: 355px;
       width: 280px;
       height: 282px;
@@ -790,6 +922,7 @@ export default {
         }
       }
       .circle-bg {
+        z-index: 998;
         width: 100%;
         height: 250px;
         border: 1px solid #00b5e3;
@@ -804,6 +937,7 @@ export default {
       }
     }
     .histogram-week {
+      z-index: 16;
       margin-top: 655px;
       width: 280px;
       height: 230px;
@@ -814,6 +948,8 @@ export default {
       .header-tab {
         width: 100%;
         display: flex;
+        cursor: pointer;
+        z-index: 666;
         .top {
           font-size: 16px;
           text-align: center;
@@ -842,7 +978,223 @@ export default {
         box-sizing: border-box;
         .histogram {
           width: 100%;
-          height: 200px;
+          height: 100%;
+        }
+      }
+    }
+    // 会员数
+    .vip-box {
+      z-index: 16;
+      width: 350px;
+      height: 65px;
+      /*background: red;*/
+      top: 215px;
+      left: 1200px;
+      position: absolute;
+      // background-color: pink;
+      .o-yuan {
+        position: absolute;
+        background-color: transparent;
+        border: 5px solid #00ddf7;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        right: -32px;
+        top: 8px;
+      }
+      .c-yuan {
+        position: absolute;
+        background-color: transparent;
+        border: 3px solid #00ddf7;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        right: -39px;
+        top: 0px;
+      }
+      .n-yuan {
+        z-index: -2;
+        position: absolute;
+        background-color: transparent;
+        border: 6px solid #00ddf7;
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        right: -54px;
+        top: -16px;
+        .quchu {
+          z-index: -1;
+          position: absolute;
+          top: 15px;
+          left: -27px;
+          width: 56px;
+          height: 59px;
+          background-color: #000b20;
+          transform: rotate(-45deg);
+        }
+      }
+      .tb-logo {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        right: -20px;
+        top: 20px;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        /*background: red;*/
+      }
+      .cz-png {
+        width: 120px;
+        height: 6px;
+        /*display: block;*/
+        position: absolute;
+        top: 4px;
+        right: 30px;
+        /*animation: vip-cz 1s linear 0s 1;*/
+      }
+      .p-xian {
+        width: 280px;
+        height: 24px;
+        /*display: block;*/
+        position: absolute;
+        bottom: 0px;
+        right: 25px;
+        /*animation: vip-xian 1s linear 0s 1;*/
+      }
+      .vip-number {
+        font-size: 19px;
+        color: #f3c800;
+        position: absolute;
+        font-weight: bold;
+        top: -8px;
+        right: 155px;
+      }
+      .vip-tit {
+        position: absolute;
+        top: 13px;
+        right: 133px;
+        p {
+          font-size: 15px;
+          color: #007387;
+          text-align: center;
+        }
+        .p1 {
+          font-size: 15px;
+          color: #00ddf7;
+          font-weight: bold;
+        }
+      }
+    }
+    // 消费订单
+    .consume-box {
+      z-index: 16;
+      width: 350px;
+      height: 65px;
+      /*background: red;*/
+      top: 100px;
+      left: 1100px;
+      position: absolute;
+      // background-color: pink;
+      .o-yuan {
+        position: absolute;
+        background-color: transparent;
+        border: 5px solid #00ddf7;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        right: -32px;
+        top: 8px;
+      }
+      .c-yuan {
+        position: absolute;
+        background-color: transparent;
+        border: 3px solid #00ddf7;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        right: -39px;
+        top: 0px;
+      }
+      .n-yuan {
+        z-index: -2;
+        position: absolute;
+        background-color: transparent;
+        border: 6px solid #00ddf7;
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        right: -54px;
+        top: -16px;
+        .quchu {
+          z-index: -1;
+          position: absolute;
+          top: 15px;
+          left: -27px;
+          width: 56px;
+          height: 59px;
+          background-color: #000b20;
+          transform: rotate(-45deg);
+        }
+      }
+      .tb-logo {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        right: -20px;
+        top: 20px;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        /*background: red;*/
+      }
+      .cz-png {
+        width: 120px;
+        height: 6px;
+        /*display: block;*/
+        position: absolute;
+        top: 4px;
+        right: 30px;
+        /*animation: vip-cz 1s linear 0s 1;*/
+      }
+      .p-xian {
+        width: 280px;
+        height: 24px;
+        /*display: block;*/
+        position: absolute;
+        bottom: 0px;
+        right: 25px;
+        /*animation: vip-xian 1s linear 0s 1;*/
+      }
+      .vip-number {
+        font-size: 19px;
+        color: #f3c800;
+        position: absolute;
+        font-weight: bold;
+        top: -8px;
+        right: 155px;
+      }
+      .vip-tit {
+        position: absolute;
+        top: 13px;
+        right: 133px;
+        p {
+          font-size: 15px;
+          color: #007387;
+          text-align: center;
+        }
+        .p1 {
+          font-size: 15px;
+          color: #00ddf7;
+          font-weight: bold;
         }
       }
     }
@@ -970,6 +1322,28 @@ export default {
             left: 135px;
           }
         }
+      }
+      .xian1 {
+        width: 226px;
+        border-top: 4px solid rgba(243, 200, 0, 0.5);
+        height: 0px;
+        // background-color: rgba(243, 200, 0, 0.5);
+        position: absolute;
+        left: 130px;
+        top: 24px;
+        transform: rotate(-50deg);
+        opacity: 1;
+      }
+      .xian2 {
+        width: 298px;
+        border-top: 4px solid rgba(243, 200, 0, 0.5);
+        height: 0px;
+        // background-color: rgba(243, 200, 0, 0.5);
+        position: absolute;
+        left: 54px;
+        top: -33px;
+        transform: rotate(-75deg);
+        opacity: 1;
       }
     }
   }
