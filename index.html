@@ -1,0 +1,35 @@
+<!--
+ * @Author: guolongtao
+ * @Date: 2019-09-17 11:59:04
+ * @LastEditors  : guolongtao
+ * @LastEditTime : 2019-12-19 10:10:58
+ * @FilePath: \web_order_big_data\index.html
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>订单大屏演示</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+</body>
+
+</html>
+<script>
+    (function(doc, win) {
+        let fn = () => {
+            let docEl = doc.documentElement,
+                clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+        }
+        if (!doc.addEventListener) return;
+        win.addEventListener('resize', fn);
+        doc.addEventListener('DOMContentLoaded', fn);
+    })(document, window);
+</script>

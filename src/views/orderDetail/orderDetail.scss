@@ -1,0 +1,629 @@
+.order-detail {
+    .card-container {
+        width: 95.9375vw;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+
+        >div {
+            position: relative;
+        }
+
+        .card-user {
+            width: 31.9271vw;
+            height: 31.0185vh;
+            background: url('../../assets/images/card_user.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            text-align: left;
+
+            .user-container {
+                position: absolute;
+                left: 10%;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 8.3333vw;
+                height: 8.3333vw;
+                background: url('../../assets/images/user_bg.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+
+                img {
+                    width: 5.7292vw;
+                    height: 5.7292vw;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    border-radius: 50%;
+                }
+            }
+
+            ul {
+                position: absolute;
+                left: 43%;
+                top: 50%;
+                transform: translateY(-50%);
+
+                li {
+                    font-size: .2rem /* 20/100 */;
+                    color: #7EFAFC;
+                    height: 3.7037vh;
+                    line-height: 3.7037vh;
+
+                    label {
+                        display: inline-block;
+                        width: 4.1667vw;
+                        text-align: justify;
+                        text-align-last: justify;
+                        text-justify: distribute-all-lines; // 这行必加，兼容ie浏览器
+                    }
+                }
+            }
+        }
+
+        .card-order {
+            width: 29.7917vw;
+            height: 31.0185vh;
+            background: url('../../assets/images/card_order.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            text-align: center;
+            color: #7EFAFC;
+
+            .total-income {
+                margin-top: 7.4074vh;
+                margin-bottom: 1.8519vh;
+                text-align: center;
+                font-size: .18rem /* 18/100 */;
+
+                span {
+                    margin: 0 1.0417vw;
+                }
+
+                img {
+                    width: 0.7292vw;
+                    height: 0.2604vw;
+                    vertical-align: middle;
+                }
+            }
+
+            .num-container {
+                height: 3.6458vw;
+                line-height: 3.6458vw;
+
+                span {
+                    display: inline-block;
+                    width: 2.6042vw;
+                    background: url('../../assets/images/num_bg.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    font-size: 1.875vw;
+                    margin-right: 0.2604vw;
+                }
+
+                span:last-child {
+                    margin-right: 0;
+                }
+
+                i {
+                    display: inline-block;
+                    width: 0.4167vw;
+                    height: 0.4167vw;
+                    border-radius: 50%;
+                    background-color: #7EFAFC;
+                }
+            }
+
+            .line-img {
+                width: 23.0208vw;
+                height: 0.6771vw;
+                margin-top: 1.2963vh;
+            }
+
+            .total-order {
+                position: absolute;
+                left: 4.1667vw;
+                top: 22.1296vh;
+                text-align: left;
+
+                span {
+                    font-size: .14rem /* 14/100 */;
+                }
+
+                div {
+                    font-size: .24rem /* 24/100 */;
+                    margin-top: 0.5208vw;
+                }
+            }
+
+            .consume-info {
+                position: absolute;
+                left: 15.1042vw;
+                top: 22.1296vh;
+                text-align: left;
+
+                li {
+                    font-size: .14rem /* 14/100 */;
+                    color: #7EFAFC;
+                    height: 2.4074vh;
+                    line-height: 2.4074vh;
+
+                    label {
+                        display: inline-block;
+                        width: 3.6458vw;
+                        text-align: justify;
+                        text-align-last: justify;
+                        text-justify: distribute-all-lines; // 这行必加，兼容ie浏览器
+                    }
+                }
+            }
+
+        }
+
+        .card-view {
+            width: 32.4479vw;
+            height: 31.0185vh;
+            background: url('../../assets/images/card_view.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+
+            #radarView {
+                width: 100%;
+                height: 31.0185vh;
+            }
+        }
+
+        .card-title {
+            font-size: .22rem /* 22/100 */;
+            font-weight: 600;
+            color: #DEF1FF;
+            position: absolute;
+            top: 0.7813vw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .bonus-pools {
+        width: 95.9375vw;
+        height: 51.8519vh;
+        background: url('../../assets/images/奖金池.gif');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        margin-top: 1.1111vh;
+        position: relative;
+
+        .bonus-pools-title {
+            font-size: .22rem /* 22/100 */;
+            font-weight: 600;
+            color: #DEF1FF;
+            position: absolute;
+            top: 0.7813vw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bonus-pools-left {
+            width: 27.0833vw;
+            height: 47.6852vh;
+            background: url('../../assets/images/bonus-pools-left-line.png') right;
+            background-size: 0.4167vw 47.6852vh;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 0.9375vw;
+            transform: translateY(-50%);
+
+            .back-btn {
+                width: 3.4167vw;
+                height: 3.3704vh;
+                line-height: 3.3704vh;
+                background: url('../../assets/images/reset_btn.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                display: inline-block;
+                text-align: center;
+                cursor: pointer;
+                color: #fff;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                font-size: .12rem /* 12/100 */;
+            }
+
+            .icon-item {
+                width: 5.4167vw;
+                height: 4.6875vw;
+                position: absolute;
+                left: 2.8125vw;
+                top: 10.0926vh;
+
+                .role-icon {
+                    width: 5.4167vw;
+                    height: 4.6875vw;
+                }
+
+
+                .animate-img {
+                    width: 0.8854vw;
+                    height: 1.7708vw;
+                    position: absolute;
+                    left: 50%;
+                    top: -2.0833vw;
+                    transform: translateX(-50%);
+                }
+
+                span {
+                    font-size: .14rem /* 14/100 */;
+                    color: #CFCD23;
+                    position: absolute;
+                    left: 50%;
+                    top: -3.2292vw;
+                    transform: translateX(-50%);
+                }
+
+
+                p {
+                    font-size: .14rem /* 14/100 */;
+                    color: #00BAFF;
+                    position: absolute;
+                    left: 50%;
+                    bottom: -0.9259vh;
+                    transform: translateX(-50%);
+                    width: 6.8854vw;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                .p-name {
+                    bottom: -2.9259vh;
+                }
+
+                .arrow-img {
+                    width: 2.8646vw;
+                    height: 1.6667vw;
+                    position: absolute;
+                    right: -3.125vw;
+                    bottom: 0.7813vw;
+
+                    img {
+                        width: 2.8646vw;
+                        height: 1.6667vw;
+                        transform: rotate(-25deg);
+                    }
+
+                    span {
+                        font-size: .14rem /* 14/100 */;
+                        color: #00BAFF;
+                        white-space: nowrap;
+                        position: absolute;
+                        top: -0.5208vw;
+                    }
+                }
+
+                .arrow-img-host {
+                    right: -2.825vw;
+                    bottom: 0.5813vw;
+                    transform: rotate(20deg);
+
+                    span {
+                        top: -0.7813vw;
+                    }
+                }
+
+                .arrow-img-rotate {
+                    right: -2.825vw;
+                    bottom: 1.5813vw;
+                    transform: rotate(-25deg);
+                }
+
+                .arrow-img-long {
+                    width: 13.125vw;
+                    height: 5.4688vw;
+                    right: -13.125vw;
+                    transform: rotate(10deg);
+
+                    img {
+                        width: 13.125vw;
+                        height: 5.4688vw;
+                        transform: rotate(-20deg);
+                    }
+                }
+
+                .arrow-img-long-recommend {
+                    width: 18.125vw;
+                    height: 5.4688vw;
+                    right: -18.125vw;
+                    transform: rotate(0deg);
+
+                    img {
+                        width: 18.125vw;
+                        height: 5.4688vw;
+                        transform: rotate(-5deg);
+                    }
+                }
+            }
+        }
+
+        .bonus-pools-middle {
+            width: 39.4792vw;
+            height: 47.6852vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            .bonus-pools-img {
+                width: 15.6771vw;
+                height: 10.2083vw;
+                position: absolute;
+                top: 2.8519vh;
+                left: 50%;
+                transform: translateX(-50%);
+
+                p {
+                    font-size: .26rem /* 26/100 */;
+                    color: #00BAFF;
+                    position: absolute;
+                    left: 50%;
+                    bottom: -1.9259vh;
+                    transform: translateX(-50%);
+                    white-space: nowrap;
+                }
+
+                .bonus-pools-arrow {
+                    position: absolute;
+                    width: 1.875vw;
+                    height: 3.8021vw;
+                    top: 50%;
+                    right: -1.25vw;
+                    transform: translateY(-50%);
+
+                    img {
+                        width: 1.875vw;
+                        height: 3.8021vw;
+                    }
+
+                    span {
+                        font-size: .26rem /* 26/100 */;
+                        color: #CFCD23;
+                        position: absolute;
+                        left: 50%;
+                        top: -1.8292vw;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            .icon-list-order {
+                width: 95%;
+                height: 4.6875vw;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                top: 34.3148vh;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .icon-item {
+                width: 5.4167vw;
+                height: 4.6875vw;
+                position: relative;
+
+                .role-icon {
+                    width: 5.4167vw;
+                    height: 4.6875vw;
+                }
+
+                .animate-img {
+                    width: 0.8854vw;
+                    height: 1.7708vw;
+                    position: absolute;
+                    left: 50%;
+                    top: -2.0833vw;
+                    transform: translateX(-50%);
+                }
+
+                span {
+                    font-size: .14rem /* 14/100 */;
+                    color: #CFCD23;
+                    position: absolute;
+                    left: 50%;
+                    top: -3.2292vw;
+                    transform: translateX(-50%);
+                }
+
+                p {
+                    font-size: .14rem /* 14/100 */;
+                    color: #00BAFF;
+                    position: absolute;
+                    left: 50%;
+                    bottom: -0.9259vh;
+                    transform: translateX(-50%);
+                    width: 6.8854vw;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                .p-name {
+                    bottom: -2.9259vh;
+                }
+
+                .arrow-img {
+                    width: 2.8646vw;
+                    height: 1.6667vw;
+                    position: absolute;
+                    right: -2.825vw;
+                    bottom: -0.2187vw;
+
+
+                    img {
+                        width: 2.8646vw;
+                        height: 1.6667vw;
+                        transform: rotate(-25deg);
+                    }
+
+                    span {
+                        font-size: .14rem /* 14/100 */;
+                        color: #00BAFF;
+                        white-space: nowrap;
+                        position: absolute;
+                        top: -0.5208vw;
+                    }
+                }
+
+                .arrow-no-right {
+                    right: -5.825vw;
+                }
+
+                .arrow-img-host {
+                    right: -2.825vw;
+                    bottom: 0.5813vw;
+                    transform: rotate(20deg);
+
+                    span {
+                        top: -0.7813vw;
+                    }
+                }
+
+                .arrow-img-rotate {
+                    right: -2.825vw;
+                    bottom: 1.5813vw;
+                    transform: rotate(-25deg);
+                }
+
+                .arrow-img-pay {
+                    left: -3.025vw;
+                    bottom: 0.1813vw;
+                    transform: rotate(-30deg);
+                }
+
+                .arrow-img-run {
+                    right: -2.825vw;
+                    bottom: 2.5813vw;
+                    transform: rotate(-45deg);
+                }
+
+                .arrow-img-supply {
+                    right: -2.825vw;
+                    bottom: -1.0187vw;
+                    transform: rotate(45deg);
+                }
+
+            }
+
+            .icon-item-middle {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .icon-item-right {
+                position: absolute;
+                top: 50%;
+                left: 30vw;
+                transform: translateY(-50%);
+            }
+        }
+
+        .bonus-pools-right {
+            width: 27.3958vw;
+            height: 47.5vh;
+            background: url('../../assets/images/组10(16).png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+
+            .icon-list-order {
+                width: 90%;
+                height: 4.6875vw;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                top: 34.3148vh;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .icon-item {
+                width: 5.4167vw;
+                height: 4.6875vw;
+                position: relative;
+
+                .role-icon {
+                    width: 5.4167vw;
+                    height: 4.6875vw;
+                }
+
+                .animate-img {
+                    width: 0.8854vw;
+                    height: 1.7708vw;
+                    position: absolute;
+                    left: 50%;
+                    top: -2.0833vw;
+                    transform: translateX(-50%);
+                }
+
+                span {
+                    font-size: .14rem /* 14/100 */;
+                    color: #CFCD23;
+                    position: absolute;
+                    left: 50%;
+                    top: -3.2292vw;
+                    transform: translateX(-50%);
+                }
+
+                p {
+                    font-size: .14rem /* 14/100 */;
+                    color: #00BAFF;
+                    position: absolute;
+                    left: 50%;
+                    bottom: -0.9259vh;
+                    transform: translateX(-50%);
+                    width: 6.8854vw;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                .p-name {
+                    bottom: -2.9259vh;
+                }
+
+                .arrow-img {
+                    width: 2.8646vw;
+                    height: 1.6667vw;
+                    position: absolute;
+                    right: -2.825vw;
+                    bottom: -0.2187vw;
+
+
+                    img {
+                        width: 2.8646vw;
+                        height: 1.6667vw;
+                        transform: rotate(-25deg);
+                    }
+
+                    span {
+                        font-size: .14rem /* 14/100 */;
+                        color: #00BAFF;
+                        white-space: nowrap;
+                        position: absolute;
+                        top: -0.5208vw;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,207 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+em {
+    font-weight: normal;
+}
+
+ul,
+li,
+u {
+    list-style: none;
+}
+
+ul,
+p {
+    margin-bottom: 0 !important;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+.clear::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    zoom: 1;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+a,
+button,
+input {
+    text-shadow: none;
+}
+
+textarea {
+    resize: none;
+    text-shadow: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    // min-width: 1200px;
+}
+
+
+/* 设置placeholder的颜色及字体大小 */
+
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #D0D6D4;
+    font-size: 14px;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #D0D6D4;
+    font-size: 14px;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #D0D6D4;
+    font-size: 14px;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #D0D6D4;
+    font-size: 14px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+// 设置容器框的样式
+// .title {
+//     // height: 3.7037vh;
+//     // line-height: 3.7037vh;
+//     color: #23EDFF;
+//     font-size: 0.16rem;
+//     text-align: center;
+//     span {
+//         // width: 50%;
+//         display: inline-block;
+//         background: url('../statics/imgs/data_img_header.png');
+//         background-size: 100% 100%;
+//         background-repeat: no-repeat;
+//     }
+//     i {
+//         width: 1.25vw;
+//         height: 2.2222vh;
+//         border: 2px solid #23EDFF;
+//     }
+//     i.left-top {
+//         position: absolute;
+//         left: -2px;
+//         top: -2px;
+//         border-right: 0;
+//         border-bottom: 0;
+//     }
+//     i.left-bottom {
+//         position: absolute;
+//         left: -2px;
+//         bottom: -2px;
+//         border-right: 0;
+//         border-top: 0;
+//     }
+//     i.right-top {
+//         position: absolute;
+//         right: -2px;
+//         top: -2px;
+//         border-left: 0;
+//         border-bottom: 0;
+//     }
+//     i.right-bottom {
+//         position: absolute;
+//         right: -2px;
+//         bottom: -2px;
+//         border-left: 0;
+//         border-top: 0;
+//     }
+// }
+
+// .institution-num {
+//     i {
+//         width: 1.0417vw;
+//         height: 1.8519vh;
+//         border: 2px solid #23EDFF;
+//     }
+//     i.left-top {
+//         position: absolute;
+//         left: -2px;
+//         top: -2px;
+//         border-right: 0;
+//         border-bottom: 0;
+//     }
+//     i.left-bottom {
+//         position: absolute;
+//         left: -2px;
+//         bottom: -2px;
+//         border-right: 0;
+//         border-top: 0;
+//     }
+//     i.right-top {
+//         position: absolute;
+//         right: -2px;
+//         top: -2px;
+//         border-left: 0;
+//         border-bottom: 0;
+//     }
+//     i.right-bottom {
+//         position: absolute;
+//         right: -2px;
+//         bottom: -2px;
+//         border-left: 0;
+//         border-top: 0;
+//     }
+// }

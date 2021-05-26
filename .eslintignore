@@ -1,0 +1,11 @@
+/build/
+/config/
+/dist/
+/src/*.js
+/src/*.scss
+/src/router/*
+/src/store/*
+/src/store/*
+/src/api/*
+/src/styles/*
+/node_modules/

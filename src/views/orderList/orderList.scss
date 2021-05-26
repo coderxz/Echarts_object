@@ -1,0 +1,248 @@
+.order-list {
+    width: 95.9375vw;
+    height: 81.2963vh;
+    background: url('../../assets/images/详情列表.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    text-align: left;
+
+    .clear::after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden;
+        zoom: 1;
+    }
+
+    .tools-container {
+        padding-top: 5.0926vh;
+        padding-left: 6.1458vw;
+        font-size: .19rem
+            /* 19/100 */
+        ;
+        color: #7EFAFC;
+
+        span {
+            font-size: .19rem
+                /* 19/100 */
+            ;
+            color: #7EFAFC;
+        }
+
+        input {
+            width: 17.0313vw;
+            height: 5.3704vh;
+            line-height: 5.3704vh;
+            background: url('../../assets/images/搜索.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            border: none;
+            outline: none;
+            font-size: .16rem
+                /* 16/100 */
+            ;
+            color: #7EFAFC;
+            text-indent: 1.4063vw;
+            margin-right: 2.0313vw;
+        }
+
+        input::placeholder {
+            color: #1258C2;
+        }
+
+        .search-btn {
+            width: 5.6771vw;
+            height: 5.3704vh;
+            line-height: 5.3704vh;
+            background: url('../../assets/images/search_btn.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .reset-btn {
+            width: 5.4167vw;
+            height: 5.3704vh;
+            line-height: 5.3704vh;
+            background: url('../../assets/images/reset_btn.png');
+            margin-left: 0.5208vw;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+    .list-title {
+        width: 88.0208vw;
+        height: 5.463vh;
+        line-height: 5.463vh;
+        background: url('../../assets/images/list_title.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: 3.1481vh auto 0;
+        color: #7EFAFC;
+        font-size: .19rem /* 19/100 */;
+        display: flex;
+
+        span {
+            display: inline-block;
+            text-align: center;
+        }
+
+        span:nth-child(1) {
+            flex: 2;
+            padding-left: 2.4479vw;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        span:nth-child(2) {
+            flex: 1;
+        }
+
+        span:nth-child(3) {
+            flex: 1;
+        }
+
+        span:nth-child(4) {
+            flex: 1;
+        }
+
+        span:nth-child(5) {
+            flex: 1;
+        }
+    }
+
+    .list-item {
+        width: 88.0208vw;
+        height: 14.8148vh;
+        background: url('../../assets/images/list_item.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin: 1.7593vh auto 0;
+        color: #7EFAFC;
+        font-size: .19rem /* 19/100 */;
+
+        .item-info {
+            height: 4.6296vh;
+            line-height: 4.6296vh;
+            padding-left: 2.4479vw;
+            padding-right: 1.4583vw;
+            font-size: .14rem /* 14/100 */;
+
+            .eq-tip {
+                display: inline-block;
+                padding: 5px 10px;
+                text-align: center;
+                background-color: #2773E6;
+                color: #0C1B47;
+                border-radius: 0.2083vw;
+                line-height: 1;
+            }
+
+            span {
+                margin-left: .14rem /* 14/100 */;
+            }
+
+            span:last-child {
+                float: right;
+            }
+        }
+
+        .item-content {
+            width: 100%;
+            height: 10.1852vh;
+            line-height: 10.1852vh;
+            font-size: .19rem /* 19/100 */;
+            display: flex;
+
+            div {
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                .status-span {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    line-height: 1.6667vw;
+                    background-color: rgba($color: #fff, $alpha: .16);
+                    border-radius: 0.2083vw;
+                }
+            }
+
+            div:nth-child(1) {
+                flex: 2;
+                box-sizing: border-box;
+                padding-left: 2.4479vw;
+                text-align: left;
+                position: relative;
+
+                .item-img {
+                    width: 5.463vh;
+                    height: 5.463vh;
+                    border-radius: 0.2083vw;
+                    display: inline-block;
+                    vertical-align: middle;
+                    position: absolute;
+                    left: 2.4479vw;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                span {
+                    display: inline-block;
+                    width: 25.3646vw;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    text-indent: 4.7396vw;
+                }
+            }
+
+            div:nth-child(2) {
+                flex: 1;
+            }
+
+            div:nth-child(3) {
+                flex: 1;
+            }
+
+            div:nth-child(4) {
+                flex: 1;
+            }
+
+            div:nth-child(5) {
+                flex: 1;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .page-tools {
+        text-align: center;
+        margin-top: 2.6852vh;
+        font-size: .14rem /* 14/100 */;
+
+        span {
+            display: inline-block;
+            width: 5.7292vw;
+            height: 4.4444vh;
+            line-height: 4.4444vh;
+            background: url('../../assets/images/page_btn.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            color: #00BAFF;
+            cursor: pointer;
+        }
+    }
+
+
+}
