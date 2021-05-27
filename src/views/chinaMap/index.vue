@@ -22,7 +22,7 @@
       <div class="quyu">
         <img src="../../assets/images/province1.png" alt="" class="imgPosition" />
         <div class="Dot"></div>
-        <div class="xian1"></div>
+        <div class="xian1 xian1Animation"></div>
         <div class="xian2"></div>
         <div class="xian3"></div>
         <div class="xian4"></div>
@@ -91,9 +91,7 @@
       <div class="vip-box">
         <div class="o-yuan"></div>
         <div class="c-yuan"></div>
-        <div class="n-yuan">
-          <div class="quchu"></div>
-        </div>
+        <div class="n-yuan"></div>
         <!--图标-->
         <div class="tb-logo">
           <img src="../../assets/images/people.png" alt="" />
@@ -136,12 +134,39 @@
           <p>Consumer orders</p>
         </div>
       </div>
+      <!--订单交易额-->
+      <div class="Order-volume">
+        <!--三圆动画-->
+        <div class="bo-yuan"></div>
+        <div class="bc-yuan"></div>
+        <div class="bn-yuan">
+          <div class="quchu"></div>
+        </div>
+        <!--图标-->
+        <div class="tb-logo">
+          <img src="../../assets/images/money.png" alt="" />
+        </div>
+        <!--线条-->
+        <img src="../../assets/images/position-tiao-b.png" alt="" class="cz-png" />
+
+        <img src="../../assets/images/xian-b.png" alt="" class="p-xian" />
+
+        <!--会员数-->
+        <div id="Order-volume" class="vip-number">4,387,662</div>
+
+        <div class="vip-tit">
+          <p class="p1">订单交易额</p>
+          <p>Order volume</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import MapCofig from '../../utils/Maputils';
+import '../../assets/js/jquery.min.js';
+import '../../assets/js/circle-progress';
 import '../../assets/js/wy_rem';
 import axios from 'axios';
 let that;
@@ -392,6 +417,8 @@ export default {
     };
   },
   mounted() {
+    console.log(document.documentElement);
+    this.demo();
     this.timer = setInterval(() => {
       this.year = this.$moment().format('YYYY');
       this.MM = this.$moment().format('MM');
@@ -458,6 +485,35 @@ export default {
     });
   },
   methods: {
+    demo() {
+      // debugger;
+      $('.o-yuan').circleProgress({
+        value: 0.75,
+        size: 90,
+        startAngle: -15,
+        fill: {
+          gradient: ['#00ddf7'],
+        },
+      });
+      $('.c-yuan').circleProgress({
+        value: 1,
+        size: 65,
+        startAngle: -15,
+        thickness: 3,
+        fill: {
+          gradient: ['#00ddf7'],
+        },
+      });
+      $('.n-yuan').circleProgress({
+        value: 1,
+        size: 50,
+        startAngle: -15,
+        thickness: 5,
+        fill: {
+          gradient: ['#00ddf7'],
+        },
+      });
+    },
     changeHighlight1(index) {
       this.isHighlight1 = index;
       switch (index) {
@@ -798,8 +854,32 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+@keyframes xian1 {
+  from {
+    // width: 0;
+    // margin-top: 0rem;
+    // margin-left: 0rem;
+    // transform: rotate(-55deg);
+    // opacity: 0;
+    width: 0;
+    left: 160px;
+    top: 113px;
+    transform: rotate(-50deg);
+    opacity: 0;
+  }
+  to {
+    width: 226px;
+    left: 130px;
+    top: 24px;
+    transform: rotate(-50deg);
+    opacity: 1;
+  }
+}
+.xian1Animation {
+  animation: xian1 1s linear 0s 1;
+}
 .tob {
-  margin-top: 362;
+  margin-top: 362px;
 }
 .map-wrap {
   width: 100%;
@@ -993,51 +1073,60 @@ export default {
       position: absolute;
       // background-color: pink;
       .o-yuan {
+        // position: absolute;
+        // background-color: transparent;
+        // border: 5px solid #00ddf7;
+        // width: 50px;
+        // height: 50px;
+        // border-radius: 50%;
+        // right: -32px;
+        // top: 8px;
         position: absolute;
-        background-color: transparent;
-        border: 5px solid #00ddf7;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        right: -32px;
-        top: 8px;
+        right: -48px;
+        top: -30px;
       }
       .c-yuan {
+        // position: absolute;
+        // background-color: transparent;
+        // border: 3px solid #00ddf7;
+        // width: 65px;
+        // height: 65px;
+        // border-radius: 50%;
+        // right: -39px;
+        // top: 0px;
         position: absolute;
-        background-color: transparent;
-        border: 3px solid #00ddf7;
-        width: 65px;
-        height: 65px;
-        border-radius: 50%;
-        right: -39px;
-        top: 0px;
+        right: -36px;
+        top: -42px;
       }
       .n-yuan {
-        z-index: -2;
+        // z-index: -2;
+        // position: absolute;
+        // background-color: transparent;
+        // border: 6px solid #00ddf7;
+        // width: 95px;
+        // height: 95px;
+        // border-radius: 50%;
+        // right: -54px;
+        // top: -16px;
         position: absolute;
-        background-color: transparent;
-        border: 6px solid #00ddf7;
-        width: 95px;
-        height: 95px;
-        border-radius: 50%;
-        right: -54px;
-        top: -16px;
-        .quchu {
-          z-index: -1;
-          position: absolute;
-          top: 15px;
-          left: -27px;
-          width: 56px;
-          height: 59px;
-          background-color: #000b20;
-          transform: rotate(-45deg);
-        }
+        right: -29px;
+        top: -49px;
+        // .quchu {
+        //   z-index: -1;
+        //   position: absolute;
+        //   top: 15px;
+        //   left: -27px;
+        //   width: 56px;
+        //   height: 59px;
+        //   background-color: #000b20;
+        //   transform: rotate(-45deg);
+        // }
       }
       .tb-logo {
         width: 26px;
         height: 26px;
         position: absolute;
-        right: -20px;
+        right: -18px;
         top: 20px;
         img {
           position: absolute;
@@ -1101,51 +1190,60 @@ export default {
       position: absolute;
       // background-color: pink;
       .o-yuan {
+        // position: absolute;
+        // background-color: transparent;
+        // border: 5px solid #00ddf7;
+        // width: 50px;
+        // height: 50px;
+        // border-radius: 50%;
+        // right: -32px;
+        // top: 8px;
         position: absolute;
-        background-color: transparent;
-        border: 5px solid #00ddf7;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        right: -32px;
-        top: 8px;
+        right: -48px;
+        top: -30px;
       }
       .c-yuan {
+        // position: absolute;
+        // background-color: transparent;
+        // border: 3px solid #00ddf7;
+        // width: 65px;
+        // height: 65px;
+        // border-radius: 50%;
+        // right: -39px;
+        // top: 0px;
         position: absolute;
-        background-color: transparent;
-        border: 3px solid #00ddf7;
-        width: 65px;
-        height: 65px;
-        border-radius: 50%;
-        right: -39px;
-        top: 0px;
+        right: -36px;
+        top: -42px;
       }
       .n-yuan {
-        z-index: -2;
+        // z-index: -2;
+        // position: absolute;
+        // background-color: transparent;
+        // border: 6px solid #00ddf7;
+        // width: 95px;
+        // height: 95px;
+        // border-radius: 50%;
+        // right: -54px;
+        // top: -16px;
         position: absolute;
-        background-color: transparent;
-        border: 6px solid #00ddf7;
-        width: 95px;
-        height: 95px;
-        border-radius: 50%;
-        right: -54px;
-        top: -16px;
-        .quchu {
-          z-index: -1;
-          position: absolute;
-          top: 15px;
-          left: -27px;
-          width: 56px;
-          height: 59px;
-          background-color: #000b20;
-          transform: rotate(-45deg);
-        }
+        right: -29px;
+        top: -49px;
+        // .quchu {
+        //   z-index: -1;
+        //   position: absolute;
+        //   top: 15px;
+        //   left: -27px;
+        //   width: 56px;
+        //   height: 59px;
+        //   background-color: #000b20;
+        //   transform: rotate(-45deg);
+        // }
       }
       .tb-logo {
         width: 26px;
         height: 26px;
         position: absolute;
-        right: -20px;
+        right: -17px;
         top: 20px;
         img {
           position: absolute;
@@ -1186,6 +1284,113 @@ export default {
         position: absolute;
         top: 13px;
         right: 133px;
+        p {
+          font-size: 15px;
+          color: #007387;
+          text-align: center;
+        }
+        .p1 {
+          font-size: 15px;
+          color: #00ddf7;
+          font-weight: bold;
+        }
+      }
+    }
+    //订单交易额
+    .Order-volume {
+      z-index: 16;
+      width: 350px;
+      height: 65px;
+      /*background: red;*/
+      top: 720px;
+      left: 400px;
+      position: absolute;
+      .bo-yuan {
+        position: absolute;
+        background-color: transparent;
+        border: 5px solid #00ddf7;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        right: 335px;
+        top: 8px;
+      }
+      .bc-yuan {
+        position: absolute;
+        background-color: transparent;
+        border: 3px solid #00ddf7;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        right: 335px;
+        top: 0px;
+      }
+      .bn-yuan {
+        z-index: -2;
+        position: absolute;
+        background-color: transparent;
+        border: 6px solid #00ddf7;
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        right: 335px;
+        top: -16px;
+        .quchu {
+          z-index: -1;
+          position: absolute;
+          top: 15px;
+          right: -27px;
+          width: 56px;
+          height: 59px;
+          background-color: #000b20;
+          transform: rotate(-45deg);
+        }
+      }
+      .tb-logo {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        left: -20px;
+        top: 20px;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        /*background: red;*/
+      }
+      .cz-png {
+        width: 120px;
+        height: 6px;
+        /*display: block;*/
+        position: absolute;
+        top: 4px;
+        right: 185px;
+        /*animation: vip-cz 1s linear 0s 1;*/
+      }
+      .p-xian {
+        width: 280px;
+        height: 24px;
+        /*display: block;*/
+        position: absolute;
+        bottom: 0px;
+        right: 28px;
+        /*animation: vip-xian 1s linear 0s 1;*/
+      }
+      .vip-number {
+        font-size: 19px;
+        color: #f3c800;
+        position: absolute;
+        font-weight: bold;
+        top: -8px;
+        right: 80px;
+      }
+      .vip-tit {
+        position: absolute;
+        top: 13px;
+        right: 103px;
         p {
           font-size: 15px;
           color: #007387;
@@ -1325,7 +1530,7 @@ export default {
       }
       .xian1 {
         width: 226px;
-        border-top: 4px solid rgba(243, 200, 0, 0.5);
+        border-top: 3px solid rgba(243, 200, 0, 0.5);
         height: 0px;
         // background-color: rgba(243, 200, 0, 0.5);
         position: absolute;
@@ -1333,10 +1538,32 @@ export default {
         top: 24px;
         transform: rotate(-50deg);
         opacity: 1;
+
+        // width: 10px;
+        // border-top: 3px solid rgba(243, 200, 0, 0.5);
+        // height: 0px;
+        // position: absolute;
+        // left: 168px;
+        // top: 109px;
+        // -webkit-transform: rotate(-50deg);
+        // transform: rotate(-50deg);
+        // opacity: 1;
+
+        // width: 3.44rem;
+        // height: 0.048rem;
+        // background: rgba(243, 200, 0, 0.5);
+        // position: absolute;
+        // left: 50%;
+        // top: 50%;
+        // margin-top: -1.504rem;
+        // margin-left: -0.72rem;
+        // transform: rotate(-55deg);
+        // opacity: 1;
+        /*animation: xian1 1s linear 0s;*/
       }
       .xian2 {
         width: 298px;
-        border-top: 4px solid rgba(243, 200, 0, 0.5);
+        border-top: 3px solid rgba(243, 200, 0, 0.5);
         height: 0px;
         // background-color: rgba(243, 200, 0, 0.5);
         position: absolute;
@@ -1348,61 +1575,13 @@ export default {
     }
   }
 }
-.map-wrap .citywraper .map-wrap .province {
-  /* width: 5.376rem;
-  height: 3.408rem;
-  background-image: url('../../assets/images/k-bg.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  position: absolute;
-  left: 14.704rem;
-  top: 7.552rem;
-  z-index: 111; */
-  width: 3.376rem;
-  height: 2.408rem;
-  background-image: url(/static/img/k-bg.b35c50b.png);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  position: absolute;
-  left: 9.3rem;
-  top: 4.2rem;
-  z-index: 111;
-  transform: scale(0);
-  transition: all 1s;
-  opacity: 0;
-  /* display: none; */
-}
-.map-wrap .province .name {
-  position: absolute;
-  font-size: 0.214rem;
-  color: #00ddf7;
-  left: 0.416rem;
-  top: 0.228rem;
-  font-weight: bold;
-}
-.map-wrap .province .quyu {
-  width: 4rem;
-  height: 2rem;
-  position: absolute;
-  top: 0.24rem;
-  left: -0.2rem;
-}
+
 .map-wrap .province .quyu img {
   height: 100%;
   display: block;
   margin: 0 auto;
 }
-.map-wrap .province .quyu .fg-dot {
-  width: 0.22rem;
-  height: 0.22rem;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -0.16rem;
-  margin-top: -0.16rem;
-  background: #f3c800;
-  border-radius: 0.16rem;
-}
+
 .map-wrap #city {
   width: 23.2rem;
   height: 16rem;
@@ -1412,165 +1591,6 @@ export default {
   top: -1rem;
   z-index: 11;
   transform: scale(0.9);
-}
-/* .abc{
-  width: 23.2rem;
-  height: 16rem;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: transparent;
-  z-index: 2;
-} */
-
-#city-map {
-  width: 23.2rem;
-  height: 16rem;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  background: transparent;
-}
-.ischangeShow {
-  transform: scale(1) !important;
-  transition: all 1s !important;
-  opacity: 1 !important;
-}
-.xian1Animation {
-  animation: xian1 1s linear 0s 1;
-  display: block !important;
-}
-.xian2Animation {
-  animation: xian2 1s linear 0s 1;
-  display: block !important;
-}
-.xian3Animation {
-  animation: xian3 1s linear 0s 1;
-  display: block !important;
-}
-.xian4Animation {
-  animation: xian4 1s linear 0s 1;
-  display: block !important;
-}
-@keyframes xian1 {
-  from {
-    width: 0;
-    margin-top: 0rem;
-    margin-left: 0rem;
-    transform: rotate(-55deg);
-    opacity: 0;
-  }
-  to {
-    width: 3.44rem;
-    margin-top: -1.504rem;
-    margin-left: -0.72rem;
-    transform: rotate(-55deg);
-    opacity: 1;
-  }
-}
-@keyframes xian2 {
-  from {
-    width: 0;
-    margin-top: 0rem;
-    margin-left: 0rem;
-    transform: rotate(-75deg);
-    opacity: 0;
-  }
-  to {
-    width: 4.576rem;
-    margin-top: -2.336rem;
-    margin-left: -1.696rem;
-    transform: rotate(-75deg);
-    opacity: 1;
-  }
-}
-@keyframes xian3 {
-  from {
-    height: 0;
-    margin-top: 0rem;
-    margin-left: 0rem;
-    transform: rotate(53deg);
-    opacity: 0;
-  }
-  to {
-    height: 8rem;
-    margin-top: -1.568rem;
-    margin-left: -3.216rem;
-    transform: rotate(53deg);
-    opacity: 1;
-  }
-}
-@keyframes xian4 {
-  from {
-    height: 0;
-    margin-top: 0rem;
-    margin-left: 0rem;
-    transform: rotate(37deg);
-    opacity: 0;
-  }
-  to {
-    height: 6.944rem;
-    margin-top: -0.64rem;
-    margin-left: -2.144rem;
-    transform: rotate(37deg);
-    opacity: 1;
-  }
-}
-.map-wrap .province .quyu .xian1 {
-  width: 3.44rem;
-  height: 0.048rem;
-  background: rgba(243, 200, 0, 0.5);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -1.504rem;
-  margin-left: -0.72rem;
-  transform: rotate(-55deg);
-  opacity: 1;
-  /*animation: xian1 1s linear 0s;*/
-}
-.map-wrap .province .quyu .xian2 {
-  width: 4.576rem;
-  height: 0.048rem;
-  background: rgba(243, 200, 0, 0.5);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -2.336rem;
-  margin-left: -1.696rem;
-  transform: rotate(-75deg);
-  opacity: 1;
-  /*animation: xian2 1s linear 0s;*/
-}
-.map-wrap .province .quyu .xian3 {
-  height: 8rem;
-  width: 0.018rem;
-  background: rgba(243, 200, 0, 0.5);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -1.568rem;
-  margin-left: -3.216rem;
-  transform: rotate(53deg);
-  opacity: 1;
-  /*animation: xian3 1s linear 0s;*/
-}
-.map-wrap .province .quyu .xian4 {
-  height: 6.944rem;
-  width: 0.018rem;
-  background: rgba(243, 200, 0, 0.5);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -0.64rem;
-  margin-left: -2.144rem;
-  transform: rotate(37deg);
-  opacity: 1;
-  /*animation: xian4 1s linear 0s;*/
-}
-.noshow {
-  display: none;
 }
 </style>
 

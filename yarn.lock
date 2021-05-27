@@ -1673,6 +1673,11 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+circle-progress@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.nlark.com/circle-progress/download/circle-progress-1.0.0.tgz#4db9346b42e29dcc9bbecd4f049e3f650c6d9791"
+  integrity sha1-Tbk0a0Lincybvs1PBJ4/ZQxtl5E=
+
 circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.nlark.com/circular-json/download/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
@@ -4515,6 +4520,11 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.nlark.com/isstream/download/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+jquery@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.npm.taobao.org/jquery/download/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha1-xyoJ8Vwb3OFC9J2/EXC9+K2sJHA=
 
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.6.4"
